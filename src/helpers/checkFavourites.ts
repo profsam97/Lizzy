@@ -6,5 +6,5 @@ export const checkIfInFavourites = (mealId: string ) : boolean => {
     const favourites = useContext(ContextApi).favourites;
     const isFavourite : MealI | undefined =  favourites.find((fav) => fav.idMeal === mealId);
 
-    return  isFavourite ? true : false;
+    return  !!isFavourite;
 } 
