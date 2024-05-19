@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import { ICategory } from '../interfaces/category.interface';
 import { truncate } from '../helpers/truncate';
 import ContextApi from '../store/ContextApi';
-import { Box } from '@mui/material';
 
 interface ICategoryCard {
   data : ICategory[]
