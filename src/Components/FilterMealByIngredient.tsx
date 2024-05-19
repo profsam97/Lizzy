@@ -15,7 +15,6 @@ const FilterMealByIngredient = () => {
     const {refetch, isSuccess, data, isLoading, isError, isFetchingNextPage, hasNextPage, fetchNextPage} = useFilterByIngredient(ingredient)
     
     useEffect(() => {
-      console.log(ingredient)
         refetch()
     },[ingredient])
     return (
