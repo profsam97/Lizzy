@@ -10,9 +10,6 @@ import FilterCategory from "./FilterCategory.tsx";
 import FilterMealByLetter from "./FilterMealByLetter.tsx";
 import FilterMealByArea from "./FilterMealByArea.tsx";
 import FilterMealByIngredient from "./FilterMealByIngredient.tsx";
-import { MealI } from "../interfaces/meal.interface.ts";
-import MealCard from "../utils/MealCard.tsx";
-import { useObserver } from "../hooks/useObserver.ts";
 import { optionsI } from "../interfaces/form.interface.ts";
 import SelectField from "../utils/Select.tsx";
 import BaseData from "./Base/Data.tsx";
@@ -45,7 +42,6 @@ const Main : React.FC =  () => {
       });
      const {isLoading: isSearching, data, isSuccess, isError, hasNextPage, isFetchingNextPage, fetchNextPage  } =  useFetchMeal();
      const searchTerm = useContext(ContextApi).searchTerm;
-     const lastMealElementRef = useObserver(isFetchingNextPage, hasNextPage, fetchNextPage)
     return (
         <Holder >
             <Grid container spacing={2}>

@@ -1,10 +1,7 @@
-import {  Button, Chip, CircularProgress, Grid, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react"
+import {  Button, Chip, CircularProgress,  Stack, Typography } from "@mui/material";
+import  { useEffect, useState } from "react"
 import { useFilterByArea } from "../hooks/useDataFetch";
 import { areas } from "../constants";
-import { ICatMeals } from "../interfaces/category.interface";
-import CatMealCard from "../utils/MealCatCard";
-import { useObserver } from "../hooks/useObserver";
 import BaseData from "./Base/Data";
 
 const FilterMealByArea = () => {
@@ -19,7 +16,6 @@ const FilterMealByArea = () => {
         refetch()
     },[area])
     const {refetch, isSuccess, data, isLoading, isError, isFetchingNextPage, hasNextPage, fetchNextPage} = useFilterByArea(area)
-    const lastMealElementRef = useObserver(isFetchingNextPage, hasNextPage, fetchNextPage );
     return (
         <Stack direction={'column'} spacing={2} sx={{my:4}}>
             <Typography variant="h6" gutterBottom>

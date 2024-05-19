@@ -1,10 +1,7 @@
-import {  Button, Chip, CircularProgress, Grid, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react"
-import { MealI } from "../interfaces/meal.interface";
+import {  Button, Chip, CircularProgress, Stack, Typography } from "@mui/material";
+import  { useEffect, useState } from "react"
 import { useFilterByLetter } from "../hooks/useDataFetch";
-import MealCard from "../utils/MealCard";
 import { alphabets } from "../constants/alphabets";
-import { useObserver } from "../hooks/useObserver";
 import BaseData from "./Base/Data";
 
 const FilterMealByLetter = () => {
@@ -15,7 +12,6 @@ const FilterMealByLetter = () => {
         setLetter(alphabet)
     }
     const {refetch, isSuccess, data, isLoading, isError, isFetchingNextPage, hasNextPage, fetchNextPage} = useFilterByLetter(letter)
-    const lastMealElementRef = useObserver(isFetchingNextPage, hasNextPage, fetchNextPage );
     useEffect(() => {
         refetch()
     },[letter])

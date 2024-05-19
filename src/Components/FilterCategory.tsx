@@ -1,4 +1,4 @@
-import { Alert, Box, Button, CircularProgress, Grid, Stack, Typography } from "@mui/material";
+import { Alert, Box, Button, CircularProgress, Stack, Typography } from "@mui/material";
 import { useFilterByCategory } from "../hooks/useDataFetch";
 import React from "react";
 import BaseData from "./Base/Data";
