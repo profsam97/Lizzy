@@ -10,7 +10,7 @@ const SelectField : React.FC<IField> = ({field}) => {
     return (
         <Select
         labelId="select-filter"
-        id="filter"
+        id="filter search"
         {...field}
         variant={"outlined"}
         sx={{

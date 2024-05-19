@@ -29,8 +29,7 @@ const  CategoryCard : React.FC<ICategoryCard> = ({data}) =>  {
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} >
       {data.map(({strCategory, strCategoryDescription, strCategoryThumb}, index)=> 
-      <Box key={index} className={'CatCard'} >
-      <ListItem  alignItems="flex-start" onClick={() => handleClick(strCategory)}>
+      <ListItem  key={index} className={'CatCard'} alignItems="flex-start" onClick={() => handleClick(strCategory)}>
       <ListItemAvatar>
         <Avatar alt={strCategory} src={strCategoryThumb} />
       </ListItemAvatar>
@@ -49,9 +48,8 @@ const  CategoryCard : React.FC<ICategoryCard> = ({data}) =>  {
           </React.Fragment>
         }
       />
+        <Divider variant="inset"  />
     </ListItem>
-            <Divider variant="inset" component="li" />
-            </Box>
       ) }
      
     </List>
