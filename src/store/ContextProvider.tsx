@@ -13,9 +13,8 @@ const ContextProvider  : React.FC<IProvider>= ({children}) => {
     const [mode, setMode] = useState<boolean>(false)
 
     const handleSwitchMode = useCallback(() => {
-        console.log('switching')
         setMode((prev) => !prev)
-    }, [mode])
+    }, [])
     const updateSearchTerm = (term : string) => {
         setSearchTerm(term)
     }
