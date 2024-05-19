@@ -9,7 +9,6 @@ export const AppRoutes = () => {
         <Routes>
             <Route path={RouteNames.HOME} element={<Home/>} />
 
-
             <Route path={RouteNames.VIEW_MEAL} element={<MealDetails/>}/>
 
             <Route path={RouteNames.FAVOURITE} element={<Favourite/>}/>
