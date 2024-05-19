@@ -74,7 +74,7 @@ const Header = () => {
 
                 <div style={{flexGrow: 0.8}}/>
 
-                <FormControl sx={{minWidth: '30% !important'}}>
+                <FormControl sx={{minWidth: '30% !important'}} >
 
                 <Controller
                   name="searchTerm"
@@ -82,6 +82,7 @@ const Header = () => {
                   render={({ field}) => (
                     <Search
                       {...field}
+                      id='search meal'
                       sx={{minWidth: '100% !important'}}
                     >
                     <SearchIconWrapper>
@@ -89,6 +90,7 @@ const Header = () => {
                     </SearchIconWrapper>
                     <StyledInputBase
                         placeholder="Search for meals…"
+                        id='search'
                         inputProps={{'aria-label': 'search'}}
                     />
                 </Search>
@@ -110,7 +112,7 @@ const Header = () => {
               </Button>
             ))}
           </Box>
-          <IconButton  sx={{mr:7, maxWidth: 20 }}  aria-label="switch mode" onClick={handleSwitchMode}>
+          <IconButton   sx={{mr:7, maxWidth: 24, '&:focus': { outline: 'none'} }}  aria-label="switch mode" onClick={handleSwitchMode}>
           {mode ? <DarkModeOutlined  />   : <LightModeOutlined/> }   
         </IconButton>
             </Toolbar>
