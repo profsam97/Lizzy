@@ -5,7 +5,6 @@ import Holder from "../../Components/Wrappers/Holder";
 const Category = () => {
     const {catId} = useParams();
 
-    console.log(catId);
     const image = 'https://images.unsplash.com/photo-1714668105771-b41382a58aa5?q=80&w=3273&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     return (
         <Box
