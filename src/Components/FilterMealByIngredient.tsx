@@ -1,10 +1,7 @@
-import {  Button, Chip, CircularProgress, Grid, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react"
+import {  Button, Chip, CircularProgress, Stack, Typography } from "@mui/material";
+import  { useEffect, useState } from "react"
 import {  useFilterByIngredient } from "../hooks/useDataFetch";
-import { ICatMeals } from "../interfaces/category.interface";
-import CatMealCard from "../utils/MealCatCard";
 import { ingredients } from "../constants";
-import { useObserver } from "../hooks/useObserver";
 import BaseData from "./Base/Data";
 
 const FilterMealByIngredient = () => {
@@ -16,8 +13,9 @@ const FilterMealByIngredient = () => {
     }
  
     const {refetch, isSuccess, data, isLoading, isError, isFetchingNextPage, hasNextPage, fetchNextPage} = useFilterByIngredient(ingredient)
-    const lastMealElementRef = useObserver(isFetchingNextPage, hasNextPage, fetchNextPage );
+    
     useEffect(() => {
+      console.log(ingredient)
         refetch()
     },[ingredient])
     return (
