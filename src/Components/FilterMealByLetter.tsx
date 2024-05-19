@@ -5,6 +5,7 @@ import { useFilterByLetter } from "../hooks/useDataFetch";
 import MealCard from "../utils/MealCard";
 import { alphabets } from "../constants/alphabets";
 import { useObserver } from "../hooks/useObserver";
+import BaseData from "./Base/Data";
 
 const FilterMealByLetter = () => {
 
@@ -34,29 +35,9 @@ const FilterMealByLetter = () => {
                 </Typography> <Button variant="outlined" color="info" onClick={() => refetch}> Retry </Button> 
                  </Stack>}
              {isSuccess && data?.pages[0].meals.length === 0 && <Typography variant="subtitle1" textAlign={'center'}>No Meal Found for this letter</Typography>}
-             <Grid container spacing={2}>
-                {data?.pages.map((page, pageIndex) => (
-            <React.Fragment key={pageIndex}>
-          {page.meals.map((meal : MealI , mealIndex: number) => {
-            if (page.meals.length === mealIndex + 1) {
-              return (
-                <Grid  ref={lastMealElementRef} key={mealIndex} item xs={12} sm={6}  md={4}>
-                <MealCard meal={meal} />
-            </Grid>
-              );
-            } else {
-              return (
-                <Grid  key={mealIndex} item xs={12} sm={6}  md={4}>
-                <MealCard meal={meal} />
-            </Grid>
-              );
-            }
-          })}
-             </React.Fragment>
-        ))}
-        </Grid>
-        {isFetchingNextPage && <Typography variant="body1" textAlign={'center'} > Fetching... <CircularProgress /></Typography>}
-
+             <BaseData catMeal={false} hasNextPage={hasNextPage} isFetchingNextPage={isFetchingNextPage}
+                  fetchNextPage={fetchNextPage} data={data}
+                  />
         </Stack>
     )
 }

@@ -5,6 +5,7 @@ import { ICatMeals } from "../interfaces/category.interface";
 import CatMealCard from "../utils/MealCatCard";
 import { ingredients } from "../constants";
 import { useObserver } from "../hooks/useObserver";
+import BaseData from "./Base/Data";
 
 const FilterMealByIngredient = () => {
 
@@ -37,30 +38,9 @@ const FilterMealByIngredient = () => {
                  </Stack>}
              {isSuccess && data?.pages[0].meals.length === 0 && <Typography variant="subtitle1" textAlign={'center'}>No Meal Found for this Ingredient</Typography>}
 
-             <Grid container spacing={2}>
-                {data?.pages.map((page, pageIndex) => (
-            <React.Fragment key={pageIndex}>
-          {page.meals.map((meal :  ICatMeals, mealIndex: number) => {
-            if (page.meals.length === mealIndex + 1) {
-              return (
-                <Grid  ref={lastMealElementRef} key={mealIndex} item xs={12} sm={6}  md={4}>
-                <CatMealCard meals={meal} />
-            </Grid>
-              );
-            } else {
-              return (
-                <Grid  key={mealIndex} item xs={12} sm={6}  md={4}>
-                <CatMealCard meals={meal} />
-            </Grid>
-              );
-            }
-          })}
-             </React.Fragment>
-        ))}
-        </Grid>
-        {isFetchingNextPage && <Typography variant="body1" textAlign={'center'} > Fetching... <CircularProgress /></Typography>}
-
-                
+             <BaseData catMeal={true} hasNextPage={hasNextPage} isFetchingNextPage={isFetchingNextPage}
+                  fetchNextPage={fetchNextPage} data={data}
+                  />
         </Stack>
     )
 }

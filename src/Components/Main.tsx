@@ -15,6 +15,7 @@ import MealCard from "../utils/MealCard.tsx";
 import { useObserver } from "../hooks/useObserver.ts";
 import { optionsI } from "../interfaces/form.interface.ts";
 import SelectField from "../utils/Select.tsx";
+import BaseData from "./Base/Data.tsx";
 
 const Main : React.FC =  () => {
 
@@ -53,28 +54,10 @@ const Main : React.FC =  () => {
                     {isSuccess &&  searchTerm.length >= 3 && <Typography variant="body1">Search Result(s) : {data?.pages[0].meals.length === 0 && 'No meal found'} </Typography>}
                     {isSearching && <Typography variant="body1" > Searching <CircularProgress/></Typography>}
                     {isError &&    <Alert severity="error">Whoops, something went wrong.</Alert>}
-                        <Grid container spacing={2}>
-        {data?.pages.map((page, pageIndex) => (
-        <React.Fragment key={pageIndex}>
-          {page.meals.map((meal : MealI , mealIndex: number) => {
-            if (page.meals.length === mealIndex + 1) {
-              return (
-                <Grid  ref={lastMealElementRef} key={mealIndex} item xs={12} sm={6}  md={4}>
-                <MealCard meal={meal} />
-            </Grid>
-              );
-            } else {
-              return (
-                <Grid  key={mealIndex} item xs={12} sm={6}  md={4}>
-                <MealCard meal={meal} />
-            </Grid>
-              );
-            }
-          })}
-        </React.Fragment>
-        ))}
-      </Grid>
-        {isFetchingNextPage && <Typography variant="body1" > Fetching... <CircularProgress  /></Typography>}
+                     
+                    <BaseData catMeal={false} hasNextPage={hasNextPage} isFetchingNextPage={isFetchingNextPage}
+                  fetchNextPage={fetchNextPage} data={data}
+                  />
             <FormControl  sx={{ minWidth: 150, my:2 }}>
              <InputLabel id="filter" shrink={false}>
                   {watch("filter") === "" && "Filter By"}
