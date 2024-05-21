@@ -6,12 +6,16 @@ import BaseData from "./Base/Data";
 
 const FilterMealByArea = () => {
 
+    // we are setting a default value for our area filter
+
+     //here is the func that update the selected area
     const [area, setArea] = useState<string>('American');
 
     const handleFilter = (location : string) => {
         setArea(location)
     }
  
+    // anytime the user select an area, we refetch    
     useEffect(() => {
         refetch()
     },[area])

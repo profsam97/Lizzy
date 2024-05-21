@@ -60,6 +60,7 @@ const Header = () => {
 
         navigate(page)
       }
+      // our darkmode function and state
       const {handleSwitchMode, mode} = useContext(ContextApi);
 
     return (

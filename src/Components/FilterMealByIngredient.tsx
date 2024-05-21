@@ -5,15 +5,17 @@ import { ingredients } from "../constants";
 import BaseData from "./Base/Data";
 
 const FilterMealByIngredient = () => {
-
+    // we are setting a default value for our ingredient filter
     const [ingredient, setIngredient] = useState<string>('Chicken');
 
+    //here is the func that update the selected ingredient
     const handleFilter = (ingredient : string) => {
         setIngredient(ingredient)
     }
- 
+    
     const {refetch, isSuccess, data, isLoading, isError, isFetchingNextPage, hasNextPage, fetchNextPage} = useFilterByIngredient(ingredient)
     
+    // anytime the user select an ingredient, we refetch    
     useEffect(() => {
         refetch()
     },[ingredient])

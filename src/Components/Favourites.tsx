@@ -6,7 +6,9 @@ import {  Grid, Stack, Typography } from "@mui/material";
 import MealCard from "../utils/MealCard";
 
 const Favourites : React.FC = () => {
+    // this is our favourites array which contains all the favourite added by the user
     const favourites : MealI[] = React.useContext(ContextApi).favourites;
+
 
     return (
         <Holder>

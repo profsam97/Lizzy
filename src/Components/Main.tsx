@@ -31,6 +31,7 @@ const Main : React.FC =  () => {
 
     useEffect(() => {
         if(category === '') return
+        // here if the user select a category we reset the filter to  empty
         reset()
     }, [category, hasClicked])
 

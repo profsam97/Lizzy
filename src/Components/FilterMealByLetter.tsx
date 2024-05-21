@@ -6,12 +6,17 @@ import BaseData from "./Base/Data";
 
 const FilterMealByLetter = () => {
 
+     // we are setting a default value for our letter filter
+
     const [letter, setLetter] = useState<string>('a');
+
+    //here is the func that update the selected letter
 
     const handleFilter = (alphabet : string) => {
         setLetter(alphabet)
     }
     const {refetch, isSuccess, data, isLoading, isError, isFetchingNextPage, hasNextPage, fetchNextPage} = useFilterByLetter(letter)
+      // anytime the user select a letter, we refetch    
     useEffect(() => {
         refetch()
     },[letter])
