@@ -8,8 +8,9 @@ const FilterMealByArea = () => {
 
     // we are setting a default value for our area filter
 
-     //here is the func that update the selected area
     const [area, setArea] = useState<string>('American');
+
+     //here is the func that update the selected area
 
     const handleFilter = (location : string) => {
         setArea(location)
@@ -35,7 +36,7 @@ const FilterMealByArea = () => {
              ))}
              </Stack>
              {isLoading && <CircularProgress/>}
-
+                
              {isError && <Stack direction='row' spacing={2}> <Typography variant="body1" color={'danger'}> Something went wrong
                 
                 </Typography> <Button variant="outlined" color="info" onClick={handleRefetch}> Retry </Button> 
