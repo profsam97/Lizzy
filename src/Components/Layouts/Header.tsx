@@ -42,6 +42,7 @@ const Header = () => {
       const searchValue = watch('searchTerm');
       const updateSearchTerm = useContext(ContextApi).updateSearchTerm;
       const handleUpdateCat = useContext(ContextApi).handleUpdateCategory;
+      // here we oonly send the request if the user types three char or more
       useEffect(() => {
         if (searchValue.length >= 3) {
           updateSearchTerm(searchValue)
@@ -55,7 +56,8 @@ const Header = () => {
       const handleLink = () => {
             navigate(RouteNames.HOME)
       }
-
+      
+      // navigate to the home page, when the user clicks on the logo
       const handleClick = (page : string) => {
 
         navigate(page)
