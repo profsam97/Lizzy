@@ -55,7 +55,7 @@ const MealCard : React.FC<IMealCard> = ({meal}) => {
 
   },[added])
   return (
-    <Card  className='mealCard' sx={{  maxWidth: '100%', minHeight: '100%' }} > 
+    <Card  elevation={3} className='mealCard' sx={{  maxWidth: '100%', minHeight: '100%' }} > 
       <CardHeader
         title={truncate(strMeal, 25)}
         subheader={<React.Fragment>
