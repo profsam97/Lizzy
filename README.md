@@ -25,7 +25,7 @@ docker build -t lizzy .
 ### Running it 
 
 ```
-docker run -dp 3000:3000 lizzy
+docker run -dp 80:80 lizzy
 ```
 
 ### To see the app visit ip address of the vm/server:3000
