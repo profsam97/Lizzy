@@ -1,11 +1,13 @@
-FROM node:14 as buildimage
+FROM node:18 as buildimage
 WORKDIR /usr/src/app
-COPY . ./client
-RUN cd client && npm install
-RUN cd client && npm run build
+COPY package.json .
+RUN  npm install
+COPY . .
+RUN npm run build
 
-FROM node:14 
-WORKDIR /usr/src/app
-COPY  --from=buildimage /usr/src/app/client .
-EXPOSE 3000
-CMD [ "npm", "start" ]
+FROM nginx:alpine
+WORKDIR /usr/share/nginx
+COPY  --from=buildimage /usr/src/app/dist ./html
+
+EXPOSE 80
+CMD [ "nginx", "-g", "daemon off;" ]
